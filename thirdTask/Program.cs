@@ -24,20 +24,20 @@ int ArrayLength()
     return length;
 }
 
-int[] CreateArray (int length)
+double[] CreateArray (int length)
 {
-    Random randomInt = new Random();
-    int[] array = new int[length];
+    Random random = new Random();
+    double[] array = new double[length];
     
     for (int i = 0; i < length; i++)
     {
-        array[i] = randomInt.Next(-10, 10);    
+        array[i] = Math.Round(random.NextDouble() * 100, 2);    
     }
 
     return array;
 } 
 
-int FindDiffMinMax (int[] arr)
+double FindDiffMinMax (double[] arr)
 {
     var min = arr[0];
     var max = arr[0];
@@ -54,12 +54,12 @@ int FindDiffMinMax (int[] arr)
         }
     }
 
-    var diff = max - min;
+    double diff = max - min;
     return diff;
 }
 
 var length = ArrayLength();
-int[] array = CreateArray(length);
-Console.WriteLine(string.Join(", ", array));
-var diff = FindDiffMinMax(array);
-Console.WriteLine(diff);
+double[] array = CreateArray(length);
+Console.WriteLine(string.Join(" ; ", array));
+double diff = FindDiffMinMax(array);
+Console.WriteLine(Math.Round(diff, 2));
